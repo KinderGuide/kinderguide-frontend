@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c78727dc-159b-452e-8f3d-8d1838e48a62" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/education/education.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/education/education.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/Education.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/education/education.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Education/Education.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/education/education.scss" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +70,10 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages" />
+      <recent name="$PROJECT_DIR$/src/styles" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -82,7 +87,7 @@
       <workItem from="1695808277169" duration="2400000" />
       <workItem from="1695810757878" duration="3762000" />
       <workItem from="1695814603810" duration="8074000" />
-      <workItem from="1695906968669" duration="1492000" />
+      <workItem from="1695906968669" duration="3895000" />
     </task>
     <servers />
   </component>
