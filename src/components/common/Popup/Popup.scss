@@ -1,0 +1,76 @@
+@import '../../../styles/abstract/constants.scss';
+@import '../../../styles/abstract/mixins.scss';
+
+.popup {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+
+  &_opened {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.popup__container {
+  padding: 100px 142px;
+  width: 692px;
+  background: $white;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &_type_image {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    aspect-ratio: auto;
+    background-color: transparent;
+  }
+}
+
+.popup__title {
+  margin: 0;
+  padding: 0;
+  color: $black;
+  @include text-l;
+  text-align: center;
+}
+
+.popup__image {
+  max-width: 75vw;
+  max-height: 75vh;
+  width: 100%;
+  aspect-ratio: auto;
+}
+
+.popup__close-btn {
+  width: 32px;
+  height: 32px;
+  background-image: url(../../../images/popup__close.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  cursor: pointer;
+  transition: opacity 0.4s linear;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

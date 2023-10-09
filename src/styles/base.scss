@@ -7,8 +7,12 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+.page {
   margin: 0;
+
+  &_lock {
+    overflow: hidden;
+  }
 }
 
 #root {
