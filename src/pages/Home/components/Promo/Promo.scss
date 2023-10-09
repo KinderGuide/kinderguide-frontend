@@ -11,6 +11,7 @@
 .promo__description-area {
   width: 630px;
 }
+
 .promo__title {
   font-size: 50px;
   font-weight: $fw-light;
@@ -28,6 +29,7 @@
   background-repeat: no-repeat;
   background-position: top 104px left 59px;
 }
+
 .promo__image {
   position: absolute;
 
@@ -45,6 +47,7 @@
     bottom: -58px;
     left: 191px;
   }
+
   &_arrow {
     top: 67px;
     left: 171px;

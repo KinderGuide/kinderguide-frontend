@@ -6,13 +6,16 @@
   margin: 100px auto;
   justify-content: flex-start;
   align-items: center;
+
   &_kind {
     &_register {
       width: 408px;
     }
+
     &_login {
       width: 408px;
     }
+
     &_recovery {
       display: flex;
       flex-direction: column;

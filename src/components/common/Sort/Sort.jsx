@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import './Sort.scss';
 

@@ -61,7 +61,8 @@ To contribute to this project, please follow these steps:
 5. Create a pull request from your branch to the `develop` branch.
 6. Add someone from the team as a reviewer for cross-review.
 
-Please note that your changes should pass linting and formatting checks. If you encounter any issues or need assistance, feel free to reach out to the team.
+Please note that your changes should pass linting and formatting checks. If you encounter any issues or need assistance,
+feel free to reach out to the team.
 
 Happy coding!
 
