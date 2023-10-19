@@ -1,0 +1,118 @@
+@import '../../../styles/abstract/constants.scss';
+@import '../../../styles/abstract/mixins.scss';
+@import '../../../styles/abstract/placeholders.scss';
+
+.button {
+  @include button;
+  padding: 0 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+  border-radius: $radii-l;
+  background-color: $button-orange;
+
+  &:hover {
+    background-color: $button-orange-hover;
+  }
+
+  &:active {
+    background-color: $button-orange-active;
+  }
+
+  &_size {
+    &_small {
+      min-height: 40px;
+      @include text-m($fw-bold);
+      line-height: 1.1;
+    }
+
+    &_medium {
+      min-height: 56px;
+      @include text-l($fw-semi-bold);
+      line-height: 1.1;
+    }
+
+    &_large {
+      min-height: 68px;
+      @include text-l($fw-semi-bold);
+    }
+  }
+
+  &_variant {
+    &_link {
+      padding: 0;
+      background: transparent;
+      color: $title-blue;
+
+      &:hover {
+        background-color: transparent;
+        color: $button-blue;
+      }
+
+      &:active {
+        background-color: transparent;
+        color: $button-cyan-active;
+      }
+    }
+
+    &_square {
+      padding: 0;
+      min-width: 52px;
+      min-height: 52px;
+      background-color: $button-cyan;
+      border-radius: $radii-xs;
+      color: $title-blue;
+
+      &:hover {
+        background-color: $button-cyan-hover;
+      }
+
+      &:active {
+        background-color: $button-cyan-active;
+        color: $button-cyan;
+      }
+    }
+  }
+
+  &_color {
+    &_orange-empty {
+      background-color: transparent;
+      border: 1.5px solid $button-orange;
+      color: $button-orange;
+
+      &:hover {
+        background-color: transparent;
+        opacity: 0.9;
+      }
+
+      &:active {
+        background-color: transparent;
+        border: 3px solid $button-orange-active;
+        color: $button-orange-active;
+      }
+    }
+
+    &_orange-dis {
+      background-color: $button-orange-dis;
+      color: $black;
+      @include disabled;
+    }
+
+    &_blue-empty {
+      background-color: transparent;
+      border: 1.5px solid $button-blue;
+      color: $button-blue;
+
+      &:hover {
+        background-color: $button-blue-hover;
+      }
+
+      &:active {
+        @extend %gradient;
+        color: $button-cyan;
+        border: 2px solid $button-cyan;
+      }
+    }
+  }
+}

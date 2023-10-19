@@ -1,0 +1,25 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
+
+.navigation-profile {
+  width: 298px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.navigation-profile__item {
+  @include text-m;
+  color: $title-blue;
+  @include link;
+  padding: 0;
+  text-align: start;
+  background-color: #fff;
+  border: none;
+  line-height: 130%;
+  font-family: 'Manrope', 'Arial', sans-serif;
+}
+
+.navigation-profile__item_active {
+  color: $title-blue;
+}

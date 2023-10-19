@@ -1,0 +1,53 @@
+@import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
+
+.footer {
+  min-height: 327px;
+  padding: 60px 76px 32px;
+  background-color: #322761;
+}
+
+.footer__flex-container {
+  color: #fefefe;
+  display: flex;
+  justify-content: space-between;
+  height: 190px;
+  border-bottom: 2px solid #7a7fe6;
+  margin-bottom: 22px;
+}
+
+.footer__logo {
+  width: 210px;
+  height: 64px;
+}
+
+.footer__right-container {
+  width: 304px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__feedback {
+  @include link;
+  @include text-l;
+  margin: 4px 0 23px;
+  letter-spacing: 0.2px;
+}
+
+.footer__social-network-area {
+  display: flex;
+  gap: 12px;
+}
+
+.footer__documents {
+  display: flex;
+  justify-content: start;
+  gap: 48px;
+  margin-left: 4px;
+}
+
+.footer__documents-item {
+  @include text-m;
+  @include link;
+  color: #fefefe;
+}

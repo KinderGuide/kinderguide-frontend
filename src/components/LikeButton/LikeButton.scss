@@ -1,0 +1,19 @@
+@import '../../styles/abstract/mixins.scss';
+
+.like-button {
+  @include button;
+  width: 44px;
+  aspect-ratio: 1 / 1;
+  background-image: url(../../images/Card/like.svg);
+  background-size: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &_active {
+    background-image: url(../../images/Card/like_active.svg);
+  }
+}

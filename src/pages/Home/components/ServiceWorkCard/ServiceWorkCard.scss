@@ -1,0 +1,24 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
+
+.service-work-card {
+  border-radius: 16px;
+  background-color: $white;
+}
+
+.service-work-card__info {
+  margin: 24px;
+  max-width: 592px;
+  background-color: $white;
+}
+
+.service-work-card__header {
+  @include text-l;
+  padding-bottom: 16px;
+  color: $black;
+  font-weight: $fw-semi-bold;
+}
+
+.service-work-card__description {
+  @include text-l;
+}

@@ -1,0 +1,132 @@
+@mixin link {
+  text-decoration: none;
+  transition: 1s;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+@mixin disabled {
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+@mixin text-xs {
+  margin: 0;
+  font-size: 12px;
+  font-weight: $fw-light;
+  line-height: 1.3;
+  letter-spacing: -0.14px;
+}
+
+@mixin text-s {
+  margin: 0;
+  font-size: 14px;
+  font-weight: $fw-light;
+  line-height: 1.3;
+  letter-spacing: -0.14px;
+}
+
+@mixin text-m($font-weight: $fw-light) {
+  margin: 0;
+  font-size: 16px;
+  font-weight: $font-weight;
+  line-height: 1.3;
+  letter-spacing: -0.16px;
+}
+
+@mixin text-l($font-weight: $fw-light) {
+  margin: 0;
+  font-size: 20px;
+  font-weight: $font-weight;
+  line-height: 1.3;
+  letter-spacing: -0.2px;
+}
+
+@mixin text-xl($font-weight: $fw-light) {
+  margin: 0;
+  font-size: 40px;
+  font-weight: $font-weight;
+  line-height: 1.3;
+}
+
+@mixin text-xxl($font-weight: $fw-normal) {
+  margin: 0;
+  font-size: 50px;
+  font-weight: $font-weight;
+  line-height: 1.2;
+}
+
+@mixin input {
+  @include text-m($fw-normal);
+  border: none;
+  color: $black;
+  background-color: $bg-purple;
+  font-size: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 0;
+  font-style: normal;
+
+  &::placeholder {
+    color: $black;
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: 1px solid $black;
+  }
+
+  &_invalid {
+    color: $error;
+  }
+}
+
+@mixin formInput {
+  width: 520px;
+  height: 68px;
+}
+
+@mixin header-cyan($font-weight: $fw-normal) {
+  margin: 0;
+  font-size: 50px;
+  font-weight: $font-weight;
+  line-height: 1.2;
+  letter-spacing: 1.6px;
+  color: $title-blue;
+}
+
+@mixin scrollbars {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #ecf0ff;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #829dfd;
+    border-radius: 20px;
+    height: 40px;
+  }
+}
+
+@mixin button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: ease-in-out 350ms;
+}

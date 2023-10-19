@@ -1,0 +1,27 @@
+@import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 83px - 249px - 120px);
+}
+
+.not-found__link {
+  @include link;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include text-l($fw-semi-bold);
+  color: #fefefe;
+  text-align: center;
+
+  background-color: #ff7a2c;
+  border-radius: 50px;
+  border: 3px solid #ff7a2c;
+  height: 68px;
+  width: 408px;
+}

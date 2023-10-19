@@ -1,0 +1,21 @@
+@import '../../styles/abstract/constants.scss';
+
+.slider-img {
+  width: 100%;
+  aspect-ratio: 1 / 0.67;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 16px;
+}
+
+.swiper-pagination {
+  margin-bottom: 30px;
+}
+
+.swiper-pagination-bullet {
+  background-color: $bg-gray;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $bg-purple;
+}

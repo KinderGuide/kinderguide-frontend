@@ -1,0 +1,43 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
+
+.filter {
+  width: auto;
+}
+
+.filter__title {
+  color: $black;
+  @include text-l($fw-semi-bold);
+
+  margin: 0;
+  margin-bottom: 32px;
+}
+
+.filter-form {
+  padding-left: 12px;
+}
+
+.filter__list-item {
+  list-style-type: none;
+}
+
+.filter__list-range,
+.filter__list-select {
+  list-style-type: none;
+}
+
+.filter__list-range {
+  margin-bottom: 32px;
+}
+
+.filter__label {
+  color: #0b1181;
+  @include text-m;
+  line-height: 130%; /* 20.8px */
+}
+
+.filter__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

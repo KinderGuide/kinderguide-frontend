@@ -1,0 +1,138 @@
+@import '../../../../../../styles/abstract/constants.scss';
+@import '../../../../../../styles/abstract/mixins.scss';
+
+.select {
+  position: relative;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  outline: none;
+}
+
+.select:focus {
+  border-color: hsl(200, 100%, 50%);
+}
+
+.wrapper-value {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  min-height: 20px;
+  border: 1.5px solid #b8c7ff;
+  border-radius: 32px;
+}
+
+.value {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 20px;
+}
+
+.search-value {
+  display: flex;
+  border: none;
+  background-color: transparent;
+  height: 20px;
+  flex-grow: 1;
+}
+
+.search-value:focus {
+  outline: none;
+}
+
+.search-value::placeholder {
+  color: #b8c7ff;
+
+  @include text-s;
+}
+
+.clear-btn {
+  background: none;
+  color: #777;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 20px;
+}
+
+.clear-btn:focus,
+.clear-btn:hover {
+  color: #333;
+}
+
+.options {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: none;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  background-color: white;
+  z-index: 100;
+  @include scrollbars;
+}
+
+.options.show {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.option {
+  padding: 0;
+  cursor: pointer;
+
+  color: #1f1f29;
+  @include text-m;
+}
+
+.option.selected {
+  color: rgb(79, 145, 79);
+}
+
+.option.highlighted {
+  color: rgb(100, 97, 97);
+}
+
+.option-badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.5px solid #ecf0ff;
+  border-radius: 32px;
+  padding: 4px 8px;
+  gap: 8px;
+  cursor: pointer;
+  background: none;
+  outline: none;
+
+  color: #1f1f29;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+  letter-spacing: -0.14px;
+}
+
+.option-badge:hover,
+.option-badge:focus {
+  background-color: hsl(0, 100%, 90%);
+  border-color: hsl(0, 100%, 50%);
+}
+
+.option-badge:hover > .remove-btn,
+.option-badge:focus > .remove-btn {
+  color: hsl(0, 100%, 50%);
+}
+
+.option-badge > .remove-btn {
+  color: #0b1181;
+  @include text-m;
+}

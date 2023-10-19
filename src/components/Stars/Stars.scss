@@ -1,0 +1,15 @@
+.stars {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.stars__star {
+  width: 24px;
+  aspect-ratio: 1 / 1;
+}
+
+.stars__rating {
+  margin: 0 0 0 5px;
+  padding: 0;
+}

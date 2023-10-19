@@ -1,0 +1,71 @@
+@import '../../../styles/abstract/constants.scss';
+@import '../../../styles/abstract/mixins.scss';
+
+.input {
+  @include input;
+
+  &_kind {
+    &_form {
+      @include formInput;
+      padding: 20px;
+      border-radius: $radii-s;
+    }
+
+    &_password {
+      @include formInput;
+      padding: 20px 60px 20px 20px;
+      border-radius: $radii-s;
+    }
+
+    &_info {
+      width: 298px;
+      height: 68px;
+      padding: 20px 26px;
+      border-radius: $radii-s;
+    }
+
+    &_search {
+      width: 478px;
+      height: 48px;
+      padding: 10px 60px 10px 20px;
+      border-radius: 32px;
+      min-height: auto;
+      border: 1px solid $border-purple;
+      background-color: transparent;
+
+      &::placeholder {
+        color: $border-purple;
+        opacity: 1;
+      }
+    }
+
+    &_price {
+      width: 115px;
+      height: 41px;
+      padding: 10px;
+      border-radius: 32px;
+      border: 1px solid $border-purple;
+      background-color: transparent;
+      min-height: auto;
+
+      &::placeholder {
+        color: $border-purple;
+        opacity: 1;
+      }
+    }
+
+    &_other {
+      width: 100%;
+      height: 42px;
+      border-radius: 32px;
+      min-height: auto;
+      border: 1px solid $border-purple;
+      background-color: transparent;
+
+      &::placeholder {
+        color: $border-purple;
+        opacity: 1;
+      }
+    }
+  }
+}

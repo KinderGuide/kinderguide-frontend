@@ -1,0 +1,109 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
+
+.sort {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  padding: 0;
+}
+
+.sort-wrapper {
+  display: flex;
+  gap: 10px;
+  height: 48px;
+  border-style: solid;
+  border-radius: 32px;
+  border-width: 1px;
+  border-color: $gray;
+  background: White;
+  transition: all 0.4s ease-out;
+
+  &_active {
+    border-radius: 32px 32px 0 0;
+  }
+}
+
+.sort__button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 12px 0 12px 20px;
+
+  color: $title-blue;
+
+  @include text-l();
+  font-size: 16px;
+}
+
+.sort__button-arrow {
+  cursor: pointer;
+  width: 48px;
+  padding: 12px 20px 12px 0;
+  background-color: transparent;
+  border: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Cpath d='M18.747 20.6624C18.6619 20.7682 18.555 20.8533 18.4338 20.9117C18.3126 20.9701 18.1803 21.0002 18.0464 21C17.9299 21.0007 17.8144 20.9774 17.7069 20.9315C17.5994 20.8856 17.502 20.818 17.4206 20.7328L13.8532 17.0803C13.6864 16.9095 13.5928 16.678 13.5928 16.4367C13.5928 16.1954 13.6864 15.9639 13.8532 15.7931C13.9358 15.7084 14.0338 15.6412 14.1419 15.5953C14.2499 15.5494 14.3657 15.5258 14.4826 15.5258C14.5996 15.5258 14.7154 15.5494 14.8234 15.5953C14.9314 15.6412 15.0295 15.7084 15.112 15.7931L17.1557 17.8963V4.91073C17.1557 4.66919 17.2496 4.43755 17.4166 4.26676C17.5836 4.09596 17.8102 4.00002 18.0464 4.00002C18.2826 4.00002 18.5091 4.09596 18.6762 4.26676C18.8432 4.43755 18.937 4.66919 18.937 4.91073V17.8841L20.9819 15.798C21.0645 15.7134 21.1625 15.6464 21.2704 15.6006C21.3783 15.5548 21.4939 15.5313 21.6107 15.5313C21.7275 15.5313 21.8432 15.5548 21.9511 15.6006C22.059 15.6464 22.157 15.7134 22.2395 15.798C22.4063 15.9688 22.5 16.2002 22.5 16.4416C22.5 16.6829 22.4063 16.9144 22.2395 17.0851L18.7458 20.6624H18.747ZM8.65307 4.33759C8.568 4.2318 8.46102 4.14665 8.33986 4.08828C8.21869 4.0299 8.08637 3.99975 7.95243 4.00002C7.83592 3.99932 7.72047 4.02261 7.61295 4.06851C7.50543 4.11441 7.40805 4.18196 7.32661 4.26716L3.76047 7.91972C3.59368 8.09048 3.5 8.32195 3.5 8.56329C3.5 8.80463 3.59368 9.0361 3.76047 9.20686C3.843 9.2916 3.94108 9.35884 4.04909 9.40472C4.1571 9.4506 4.2729 9.47421 4.38986 9.47421C4.50681 9.47421 4.62262 9.4506 4.73063 9.40472C4.83863 9.35884 4.93672 9.2916 5.01925 9.20686L7.06179 7.10494V20.0893C7.06179 20.3308 7.15562 20.5625 7.32265 20.7332C7.48968 20.904 7.71622 21 7.95243 21C8.18864 21 8.41518 20.904 8.58221 20.7332C8.74924 20.5625 8.84307 20.3308 8.84307 20.0893V7.11587L10.888 9.20201C10.9705 9.28656 11.0685 9.35364 11.1764 9.39942C11.2843 9.44519 11.4 9.46875 11.5168 9.46875C11.6336 9.46875 11.7493 9.44519 11.8572 9.39942C11.9651 9.35364 12.0631 9.28656 12.1456 9.20201C12.3124 9.03125 12.406 8.79978 12.406 8.55844C12.406 8.3171 12.3124 8.08562 12.1456 7.91487L8.65188 4.33637L8.65307 4.33759Z' fill='%230B1181'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 28px;
+  background-position: center;
+
+  @include text-l();
+  font-size: 16px;
+}
+
+.sort-list {
+  position: absolute;
+  box-sizing: border-box;
+  top: 50%;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+
+  padding: 20px;
+  margin: 0;
+
+  visibility: hidden;
+  opacity: 0;
+  border-radius: 0px 0px 32px 32px;
+  border: 1px solid $gray;
+  background: white;
+
+  transition: all 0.4s ease-out;
+
+  &_active {
+    z-index: 5;
+    top: 100%;
+    visibility: visible;
+    opacity: 1;
+    border-width: 0 1px 1px 1px;
+  }
+}
+
+.sort-list__item {
+  position: relative;
+  list-style: none;
+}
+
+.sort-list__button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  width: max-content;
+  height: 100%;
+  padding: 0;
+  align-content: baseline;
+  transition: all 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  color: $black;
+
+  @include text-l();
+  font-size: 16px;
+
+  &_selected {
+    opacity: 0.7;
+  }
+}

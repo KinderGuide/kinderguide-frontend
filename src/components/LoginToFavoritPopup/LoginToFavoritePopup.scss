@@ -1,0 +1,32 @@
+@import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
+
+.popup-favorite {
+  width: 448px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+
+  button {
+    align-self: center;
+  }
+}
+
+.popup-favorite__description {
+  @include text-l;
+}
+.popup-favorite__register {
+  @include text-l;
+
+  button {
+    @include button;
+    @include text-l;
+    color: $button-blue;
+    border-bottom: 1px solid $button-blue;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}

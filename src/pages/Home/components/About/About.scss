@@ -1,0 +1,22 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins';
+@import '../../../../styles/abstract/placeholders';
+
+.about {
+  padding: 152px 0;
+}
+
+.about__header {
+  @include header-cyan;
+  text-align: center;
+  padding: 0;
+  margin-bottom: 64px;
+}
+
+.about__list {
+  @include list;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: space-between;
+}

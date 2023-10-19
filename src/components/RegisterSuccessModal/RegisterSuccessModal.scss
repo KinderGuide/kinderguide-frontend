@@ -1,0 +1,30 @@
+@import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
+
+.register-succes-modal__title {
+  font-size: 28px;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0 auto 40px;
+  width: 408px;
+}
+
+.register-succes-modal__description {
+  font-size: 20px;
+  line-height: 1.4;
+  text-align: center;
+  margin: 0 auto 40px;
+  width: 532px;
+
+  span {
+    color: $title-blue;
+  }
+
+  a {
+    @include link;
+  }
+
+  &:last-of-type {
+    margin: 0;
+  }
+}

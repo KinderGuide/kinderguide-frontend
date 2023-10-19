@@ -1,0 +1,24 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
+
+.user-edit__name-text {
+  @include text-m;
+  width: 112px;
+}
+
+.user__wrapper {
+  padding: 30px 0;
+  display: flex;
+  gap: 77px;
+  border-bottom: 1px solid #b8c7ff;
+}
+
+.user__wrapper:first-child {
+  border-top: 1px solid #b8c7ff;
+}
+
+.user-edit__btns {
+  margin-top: 40px;
+  display: flex;
+  gap: 32px;
+}

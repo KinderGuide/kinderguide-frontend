@@ -1,0 +1,52 @@
+@import '../../../styles/abstract/constants.scss';
+@import '../../../styles/abstract/mixins.scss';
+
+.position-popup {
+  background-color: rgba(25, 26, 49, 0.05);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+
+  &_opened {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.position-popup__container {
+  margin: auto;
+  padding: 35px 32px;
+  background: $white;
+  border-radius: 16px;
+  border: 1px solid $border-purple;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  filter: drop-shadow(-5px -5px 10px rgba(202, 204, 241, 0.25));
+}
+
+.position-popup__close-btn {
+  @include button;
+  width: 28px;
+  height: 28px;
+  background-image: url(../../../images/Popup/btn-pos-close.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 8px;
+  right: 28px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

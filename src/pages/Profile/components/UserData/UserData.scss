@@ -1,0 +1,30 @@
+@import '../../../../styles/abstract/mixins.scss';
+@import '../../../../styles/abstract/constants.scss';
+
+.user {
+  width: 958px;
+}
+
+.user__avatar {
+  margin-bottom: 40px;
+  width: 64px;
+  height: 64px;
+  background-image: url('../../../../images/Profile/Profile-Avatar.svg');
+}
+
+.user__wrapper_bottom {
+  margin-bottom: 40px;
+}
+
+.user__wrapper_top {
+  border-top: 1px solid #b8c7ff;
+}
+
+.user__label {
+  @include text-m;
+  width: 195px;
+}
+
+.user__text {
+  @include text-m;
+}
