@@ -6,25 +6,29 @@
 }
 
 .orgWrapper__nav {
-  margin: 40px 0 0 0;
+  margin: 40px 0 16px 0;
   display: flex;
   flex-direction: row;
+}
+
+.orgWrapper__nav-item {
+  @include text-s;
+  @include link;
+  color: $button-cyan;
 }
 
 .orgWrapper__headerWrapper {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
 .orgWrapper__header {
   @include header-cyan;
-  margin: 0;
+  margin: 0 0 14px 0;
   padding: 0;
-}
-
-.orgWrapper__ratingWrapper {
+  font-weight: normal;
 }
 
 .orgWrapper__like {
@@ -39,7 +43,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   gap: 30px;
-  margin: 20px 0 200px 0;
+  margin: 20px 0 13px 0;
 }
 
 .orgWrapper__info {
@@ -47,23 +51,24 @@
 }
 
 .orgWrapper__imgContainer {
-  height: 434px;
+  height: 494px;
   background-color: $bg-gray;
   margin: 0 0 40px 0;
   border-radius: 16px;
 }
 
-.orgWrapper__description {
+.orgWrapper__section {
+  margin-bottom: 64px;
 }
 
-.orgWrapper__descHeader {
+.orgWrapper__sectionHeader {
+  @include text-xl($fw-light);
+  padding: 0;
+  margin: 0 0 20px 0;
 }
 
 .orgWrapper__descText {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  @include text-l($fw-light);
 }
 
 .orgWrapper__aside {
@@ -74,25 +79,42 @@
   border-radius: 16px;
   background-color: $bg-purple;
   margin-bottom: 40px;
-  padding: 40px;
+  padding: 40px 40px 40px 60px;
 }
 
 .orgWrapper__title {
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  margin: 0 0 16px 0;
+  padding: 0;
 }
 
 .orgWrapper__perYear {
+  @include text-l($fw-semi-bold);
+  margin-bottom: 10px;
 }
 
 .orgWrapper__perMonth {
+  @include text-l;
+  margin-bottom: 52px;
 }
 
 .orgWrapper__contacts {
+  @include text-l;
+  margin-bottom: 12px;
+}
+
+.orgWrapper__buttonWrapper {
+  margin-top: 40px;
 }
 
 .orgWrapper__map {
   width: 518px;
   height: 334px;
   border-radius: 16px;
+  overflow: hidden;
 }
 
 .orgWrapper__feedback {
@@ -101,10 +123,4 @@
 .orgWrapper__feedbackHeader {
   @include header-cyan;
   text-align: center;
-}
-
-.orgWrapper__feedbackCards {
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
 }

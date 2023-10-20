@@ -2,17 +2,11 @@ import { useState } from 'react';
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 import './YandexMap.scss';
 
-export const YandexMap = (
-  {
-    // address
-  }
-) => {
-  // Ю. Убрать хардкод адреса при получении данных с бека
-  const address = 'Москва, ул. Льва Толстого, 16';
+export const YandexMap = (props) => {
   const [coordinates, setCoordinates] = useState([55.751999, 37.617734]);
 
   function geocode(ymaps) {
-    ymaps.geocode(address).then((result) => {
+    ymaps.geocode(props.address).then((result) => {
       setCoordinates(result.geoObjects.get(0).geometry.getCoordinates());
     });
   }
@@ -29,7 +23,7 @@ export const YandexMap = (
         className='direction'
         defaultState={{
           center: coordinates,
-          zoom: 9,
+          zoom: 12,
           controls: ['zoomControl', 'fullscreenControl'],
         }}
         modules={[

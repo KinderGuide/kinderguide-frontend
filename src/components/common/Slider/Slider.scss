@@ -1,27 +1,46 @@
+@import '../../../styles/abstract/constants.scss';
+@import '../../../styles/abstract/mixins.scss';
+
 .slider {
   position: relative;
   display: flex;
   gap: 10px;
   align-items: center;
-
-  &_variant_images {
-    button:first-child {
-      position: absolute;
-      top: calc(50% - 20px);
-      left: 10px;
-      z-index: 11;
-    }
-
-    button:last-child {
-      position: absolute;
-      top: calc(50% - 20px);
-      right: 10px;
-      z-index: 11;
-    }
-  }
 }
 
 .swiper-slide {
   display: flex;
   justify-content: center;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  @include button;
+  border-radius: $radii-l;
+  min-width: 52px;
+  min-height: 52px;
+  background-color: $button-cyan;
+  border-radius: $radii-xs;
+  background-size: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &:hover {
+    background-color: $button-cyan-hover;
+  }
+
+  &:active {
+    background-color: $button-cyan-active;
+  }
+
+  &:after {
+    display: none;
+  }
+}
+
+.swiper-button-next {
+  background-image: url(../../../images/Slider/arrow-right.svg);
+}
+.swiper-button-prev {
+  background-image: url(../../../images/Slider/arrow-left.svg);
 }

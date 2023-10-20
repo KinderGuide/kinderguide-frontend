@@ -1,0 +1,11 @@
+@import '../../../styles/abstract/constants.scss';
+@import '../../../styles/abstract/mixins.scss';
+
+.activity {
+  @include text-l;
+  margin-bottom: 26px;
+}
+
+.activity__type {
+  @include text-l($fw-semi-bold);
+}

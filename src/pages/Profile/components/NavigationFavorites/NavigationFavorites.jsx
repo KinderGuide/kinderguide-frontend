@@ -1,15 +1,25 @@
 import React from 'react';
 import './NavigationFavorites.scss';
 
-export function NavigationFavorites({ setStateFavorites, stateFavorites }) {
+export function NavigationFavorites({ setStateProfile, stateProfile }) {
   const handleClick = (data) => {
-    setStateFavorites(data);
+    setStateProfile(data);
   };
   return (
     <nav className='navigation-favorites'>
       <button
         className={
-          stateFavorites === 'school'
+          stateProfile === 'all'
+            ? 'navigation-favorites__item navigation-favorites__item_active'
+            : 'navigation-favorites__item'
+        }
+        onClick={() => handleClick('all')}
+      >
+        Все
+      </button>
+      <button
+        className={
+          stateProfile === 'school'
             ? 'navigation-favorites__item navigation-favorites__item_active'
             : 'navigation-favorites__item'
         }
@@ -19,23 +29,13 @@ export function NavigationFavorites({ setStateFavorites, stateFavorites }) {
       </button>
       <button
         className={
-          stateFavorites === 'gardens'
+          stateProfile === 'gardens'
             ? 'navigation-favorites__item navigation-favorites__item_active'
             : 'navigation-favorites__item'
         }
         onClick={() => handleClick('gardens')}
       >
         Сады
-      </button>
-      <button
-        className={
-          stateFavorites === 'courses'
-            ? 'navigation-favorites__item navigation-favorites__item_active'
-            : 'navigation-favorites__item'
-        }
-        onClick={() => handleClick('courses')}
-      >
-        Курсы
       </button>
     </nav>
   );

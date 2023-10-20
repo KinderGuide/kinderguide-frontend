@@ -2,11 +2,21 @@
 @import '../../../styles/abstract/mixins.scss';
 
 .feedback {
-  background-color: $bg-purple;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 222px;
+}
+
+.feedback__item {
+  border: 1px solid $border-purple;
   width: 408px;
-  height: 364px;
+  height: 380px;
   padding: 40px;
-  border-radius: 16px;
+  border-radius: $radii-m;
 }
 
 .feedback__titleWrapper {
@@ -17,17 +27,12 @@
 }
 
 .feedback__title {
-  font-size: 20px;
-  font-weight: bold;
+  @include text-l($fw-semi-bold);
   margin: 0 10px 0 0;
   padding: 0;
 }
 
 .feedback__text {
-  font-size: 20px;
-  display: -webkit-box;
-  -webkit-line-clamp: 7;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  @include text-l;
   margin: 20px 0;
 }

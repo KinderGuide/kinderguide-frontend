@@ -10,12 +10,12 @@
   &_kind {
     &_form {
       width: 520px;
-      margin-bottom: 20px;
+      margin-bottom: 2px;
     }
 
     &_password {
       width: 520px;
-      margin-bottom: 20px;
+      margin-bottom: 2px;
     }
 
     &_info {
@@ -38,13 +38,14 @@
 
 .inputWrapper__label {
   @include text-m;
+  font-weight: $fw-bold;
   color: $black;
   margin: 0;
   padding: 0 0 5px 0;
 }
 
 .inputWrapper__error {
-  @include text-m;
+  @include text-s;
   display: block;
   border: none;
   color: $error;
@@ -53,5 +54,6 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin: 0;
-  padding: 5px 0 20px 0;
+  padding: 5px 0 0 0;
+  height: 20px;
 }

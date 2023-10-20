@@ -1,14 +1,13 @@
-import React, { useCallback, useEffect, useState, useRef } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useCallback, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import './DoubleRange.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPriceFilter } from '../../../../../../store/filterSlice';
 
-export const DoubleRange = ({ min, max, value, onChange }) => {
-  const [values, setValues] = useState({
-    minVal: value.minVal,
-    maxVal: value.maxVal,
-  });
-  const minValRef = useRef(min);
-  const maxValRef = useRef(max);
+export const DoubleRange = React.memo(({ min, max }) => {
+  const { price } = useSelector((state) => state.filter);
+  const dispatch = useDispatch();
   const range = useRef(null);
 
   const getPercent = useCallback(
@@ -18,41 +17,24 @@ export const DoubleRange = ({ min, max, value, onChange }) => {
 
   // Задает ширину диапазона для уменьшения с левой стороны
   useEffect(() => {
-    const minPercent = getPercent(values.minVal);
-    const maxPercent = getPercent(maxValRef.current);
+    const minPercent = getPercent(price.minVal);
+    const maxPercent = getPercent(price.maxVal);
 
     if (range.current) {
       range.current.style.left = `${minPercent}%`;
       range.current.style.width = `${maxPercent - minPercent}%`;
     }
-  }, [values.minVal, getPercent]);
+  }, [price.minVal, getPercent]);
 
   // Задает ширину диапазона для уменьшения с правой стороны
   useEffect(() => {
-    const minPercent = getPercent(minValRef.current);
-    const maxPercent = getPercent(values.maxVal);
+    const minPercent = getPercent(price.minVal);
+    const maxPercent = getPercent(price.maxVal);
 
     if (range.current) {
       range.current.style.width = `${maxPercent - minPercent}%`;
     }
-  }, [values.maxVal, getPercent]);
-
-  function debounce(func, delay) {
-    let timerId;
-    return function (...args) {
-      if (timerId) {
-        clearTimeout(timerId);
-      }
-      timerId = setTimeout(() => {
-        func(...args);
-      }, delay);
-    };
-  }
-
-  useEffect(() => {
-    const delayedOnChange = debounce(onChange, 1000);
-    delayedOnChange(values);
-  }, [values]);
+  }, [price.maxVal, getPercent]);
 
   return (
     <div className='container'>
@@ -60,35 +42,32 @@ export const DoubleRange = ({ min, max, value, onChange }) => {
         <input
           placeholder='от 1000'
           className='values__left'
-          value={values.minVal}
+          value={price.minVal}
           onChange={(event) => {
             if (isNaN(event.target.value)) {
-              setValues((prev) => prev);
+              dispatch(setPriceFilter(price));
               return;
             }
-            const value = Math.min(Number(event.target.value), values.maxVal);
-            setValues({ ...values, minVal: value });
-            minValRef.current = value;
+            const value = Math.min(Number(event.target.value), price.maxVal);
+            dispatch(setPriceFilter({ ...price, minVal: value }));
           }}
         />
         <div className='values__separator'></div>
         <input
           placeholder='до 10 000 000'
           className='values__right'
-          value={values.maxVal}
+          value={price.maxVal}
           onChange={(event) => {
             if (isNaN(event.target.value)) {
-              setValues((prev) => prev);
+              dispatch(setPriceFilter(price));
               return;
             }
-            const value = Math.max(Number(event.target.value), values.minVal);
+            const value = Math.max(Number(event.target.value), price.minVal);
             if (value > max) {
-              setValues({ ...values, maxVal: max });
-              maxValRef.current = max;
+              dispatch(setPriceFilter({ ...price, maxVal: max }));
               return;
             }
-            setValues({ ...values, maxVal: value });
-            maxValRef.current = value;
+            dispatch(setPriceFilter({ ...price, maxVal: value }));
           }}
         />
       </div>
@@ -97,25 +76,23 @@ export const DoubleRange = ({ min, max, value, onChange }) => {
           type='range'
           min={min}
           max={max}
-          value={values.minVal}
+          value={price.minVal}
           onChange={(event) => {
-            const value = Math.min(Number(event.target.value), values.maxVal);
-            setValues({ ...values, minVal: value });
-            minValRef.current = value;
+            const value = Math.min(Number(event.target.value), price.maxVal);
+            dispatch(setPriceFilter({ ...price, minVal: value }));
           }}
           className={`thumb thumb__left ${
-            values.minVal > max - 100 ? 'thumb__left_zindex' : ''
+            price.minVal > max - 100 ? 'thumb__left_zindex' : ''
           }`}
         />
         <input
           type='range'
           min={min}
           max={max}
-          value={values.maxVal}
+          value={price.maxVal}
           onChange={(event) => {
-            const value = Math.max(Number(event.target.value), values.minVal);
-            setValues({ ...values, maxVal: value });
-            maxValRef.current = value;
+            const value = Math.max(Number(event.target.value), price.minVal);
+            dispatch(setPriceFilter({ ...price, maxVal: value }));
           }}
           className='thumb thumb__right'
         />
@@ -125,7 +102,7 @@ export const DoubleRange = ({ min, max, value, onChange }) => {
       </div>
     </div>
   );
-};
+});
 
 DoubleRange.propTypes = {
   min: PropTypes.number.isRequired,

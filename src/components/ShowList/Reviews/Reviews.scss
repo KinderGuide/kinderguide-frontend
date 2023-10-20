@@ -1,0 +1,8 @@
+@import '../../../styles/abstract/constants.scss';
+@import '../../../styles/abstract/mixins.scss';
+
+.reviews {
+  @include text-l($fw-light);
+  margin: 0 0 0 5px;
+  padding: 0;
+}

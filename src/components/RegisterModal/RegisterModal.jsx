@@ -10,6 +10,11 @@ import { Button } from '../common/Button';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useCreateUserMutation } from '../../api/authApi';
+import { useDispatch } from 'react-redux';
+import { closeAllModals } from '../../store/modalsSlice';
+import { setUser, setToken } from '../../store/authSlice';
+
+import { useLoginMutation } from '../../api/authApi';
 
 export const RegisterModal = () => {
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
@@ -21,14 +26,36 @@ export const RegisterModal = () => {
   const isOpen = useSelector((state) => state.modals.isOpenRegisterModal);
 
   const [createUser, { isLoading, isError }] = useCreateUserMutation();
+  const [login, { isLoading: isLoadingLogin, isError: isErrorLogin }] =
+    useLoginMutation();
+
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(data);
     try {
       const response = await createUser(data).unwrap();
-      console.log(response); // eslint-disable-line
       resetForm();
+      dispatch(closeAllModals());
+
+      const userData = await login({
+        email: response.email,
+        password: data['password'],
+      }).unwrap();
+
+      localStorage.setItem('token', userData.access);
+
+      dispatch(
+        setUser({
+          user: response,
+        })
+      );
+      dispatch(
+        setToken({
+          token: userData.access,
+        })
+      );
     } catch (error) {
       console.log(error);
     } finally {
@@ -156,12 +183,12 @@ export const RegisterModal = () => {
         />
         <Button
           type='submit'
-          width='532px'
+          width='520px'
           size='large'
           color={isReadyToSubmit ? 'orange-fill' : 'orange-dis'}
-          disabled={!isReadyToSubmit}
+          disabled={!isReadyToSubmit & isLoading}
         >
-          Зарегистрироваться
+          {isLoading ? 'Подождите' : 'Зарегистрироваться'}
         </Button>
       </form>
     </Popup>

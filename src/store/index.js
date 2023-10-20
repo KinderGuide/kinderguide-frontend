@@ -17,10 +17,12 @@ export default configureStore({
     auth: authReducer,
     filter: filterReducer,
     [authApi.reducerPath]: authApi.reducer,
+    [userApi.reducerPath]: userApi.reducer,
     [schoolApi.reducerPath]: schoolApi.reducer,
     [kindergartenApi.reducerPath]: kindergartenApi.reducer,
     [schoolReviewsApi.reducerPath]: schoolReviewsApi.reducer,
     [kindergartenReviewsApi.reducerPath]: kindergartenReviewsApi.reducer,
+    [userApi.reducerPath]: userApi.reducer,
     [filterApi.reducerPath]: filterApi.reducer,
   },
 
@@ -32,6 +34,7 @@ export default configureStore({
       kindergartenApi.middleware,
       schoolReviewsApi.middleware,
       kindergartenReviewsApi.middleware,
+      userApi.middleware,
       filterApi.middleware
     ),
 });

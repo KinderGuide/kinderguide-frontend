@@ -2,19 +2,15 @@
 @import '../../../../styles/abstract/mixins.scss';
 
 .user-edit__name-text {
-  @include text-m;
-  width: 112px;
+  @include text-l;
+  width: 155px;
 }
 
-.user__wrapper {
-  padding: 30px 0;
+.user__wrapper-edit {
+  padding: 21px 0;
   display: flex;
-  gap: 77px;
+  gap: 32px;
   border-bottom: 1px solid #b8c7ff;
-}
-
-.user__wrapper:first-child {
-  border-top: 1px solid #b8c7ff;
 }
 
 .user-edit__btns {

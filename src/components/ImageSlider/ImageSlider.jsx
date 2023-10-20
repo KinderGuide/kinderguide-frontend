@@ -9,7 +9,12 @@ import './ImageSlider.scss';
  */
 export const ImageSlider = ({ images, width = '50%' }) => {
   const slides = images?.map((image) => (
-    <img className='slider-img' src={image.image_url} alt='Фото школы/сада' />
+    <img
+      className='slider-img'
+      // src={image.image}
+      src={`https://kinder.acceleratorpracticum.ru${image.image}`}
+      alt='Фото организации'
+    />
   ));
 
   return (
@@ -21,7 +26,7 @@ ImageSlider.propTypes = {
   /**
    * Массив изображений
    */
-  slides: PropTypes.array,
+  images: PropTypes.array,
   /**
    * Ширина слайдера
    */

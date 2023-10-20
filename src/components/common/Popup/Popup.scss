@@ -18,7 +18,9 @@
   visibility: hidden;
   padding: 106px 0 70px;
   z-index: 110;
-  transition: opacity 0.4s ease;
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease;
 
   &_opened {
     visibility: visible;
@@ -28,7 +30,7 @@
 
 .popup__container {
   margin: auto;
-  padding: 60px 80px;
+  padding: 60px 74px;
   background: $white;
   border-radius: 16px;
   display: flex;
@@ -82,4 +84,18 @@
   &:hover {
     opacity: 0.8;
   }
+}
+
+.popup_type_profile-modal {
+  padding-top: 96px;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: flex-start;
+  text-align: center;
+}
+
+.popup__container_type_profile-modal {
+  padding: 60px 60px;
+  max-width: 690px;
+  align-items: center;
 }

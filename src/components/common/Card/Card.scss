@@ -9,6 +9,7 @@
   gap: 20px;
   border: 1px solid $border-purple;
   border-radius: 16px;
+  z-index: 1;
 }
 
 .card__img {
@@ -34,6 +35,11 @@
 .card__title {
   @include text-l($fw-semi-bold);
   letter-spacing: 0.7px;
+  text-decoration: none;
+  color: $black;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .card__text {

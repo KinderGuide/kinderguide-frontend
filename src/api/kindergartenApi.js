@@ -7,7 +7,7 @@ export const kindergartenApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (build) => ({
     getKindergarten: build.query({
-      query: (kindergarten_id) => `kindergartens/${kindergarten_id}`,
+      query: (kindergarten_id) => `v1/kindergartens/${kindergarten_id}/`,
     }),
   }),
 });

@@ -38,7 +38,7 @@ export const Navigation = ({ usedFor }) => {
           <ul className='navigation__item-list'>
             <li>Школы</li>
             <li>Сады</li>
-            <li>Курсы</li>
+            {/* <li>Курсы</li> */}
           </ul>
         )}
       </NavLink>

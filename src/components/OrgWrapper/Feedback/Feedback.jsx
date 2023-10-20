@@ -4,36 +4,16 @@ import { Button } from '../../common/Button';
 
 export const Feedback = ({ feedback }) => {
   return (
-    <div>
+    <div className='feedback'>
       {feedback?.map((fb) => (
-        <div className='feedback'>
+        <div key={fb.id} className='feedback__item'>
           <div className='feedback__titleWrapper'>
-            <h3 className='feedback__title'>{fb.author}Test</h3>
+            <h3 className='feedback__title'>{fb.author}</h3>
             <Stars rating={fb.grade} />
           </div>
-          <p className='feedback__text'>
-            {fb.content}
-            Мы перевели нашего сына Марка в этом году. Ранее мы учились в другой
-            школе, но нам там не понравилось ни мне, ни сыну из-за отсутствия
-            индивидуального подхода к детям test test test test test test test
-            test test
-          </p>
-          <Button variant='link'>Подробнее></Button>
+          <p className='feedback__text'>{fb.content}</p>
         </div>
       ))}
-      <div className='feedback'>
-        <div className='feedback__titleWrapper'>
-          <h3 className='feedback__title'>Test</h3>
-          <Stars rating='5' />
-        </div>
-        <p className='feedback__text'>
-          Мы перевели нашего сына Марка в этом году. Ранее мы учились в другой
-          школе, но нам там не понравилось ни мне, ни сыну из-за отсутствия
-          индивидуального подхода к детям test test test test test test test
-          test test
-        </p>
-        <Button variant='link'>Подробнее></Button>
-      </div>
     </div>
   );
 };

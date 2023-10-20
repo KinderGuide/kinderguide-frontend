@@ -7,7 +7,7 @@ export const schoolApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (build) => ({
     getSchool: build.query({
-      query: (school_id) => `schools/${school_id}`,
+      query: (school_id) => `v1/schools/${school_id}/`,
     }),
   }),
 });

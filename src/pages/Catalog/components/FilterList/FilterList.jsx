@@ -12,7 +12,6 @@ export function FilterList({
   handleReset,
   filter,
   checkboxHandler,
-  rangeHandler,
   selectHandler,
 }) {
   return (
@@ -46,18 +45,12 @@ export function FilterList({
                   })
                 ) : block.type === 'range' ? (
                   <li key={index} className='filter__list-range'>
-                    <DoubleRange
-                      min={0}
-                      max={10000000}
-                      value={filter.price}
-                      onChange={(value) => rangeHandler(value)}
-                    />
+                    <DoubleRange min={0} max={10000000} />
                   </li>
                 ) : (
                   <li key={index} className='filter__list-select'>
                     <SelectOption
                       options={METRO_LIST}
-                      value={filter.metro}
                       onChange={(o) => {
                         selectHandler(block.category, o);
                       }}

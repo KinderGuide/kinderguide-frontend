@@ -1,9 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useClickOutside } from '../../../../../../hooks/useClickOutside';
 import './SelectOption.scss';
+import { useSelector } from 'react-redux';
 
-export function SelectOption({ value, onChange, options }) {
+export const SelectOption = React.memo(({ onChange, options }) => {
+  const { metro } = useSelector((state) => state.filter);
   const [inputValue, setInputValue] = useState('');
   const [searchOption, setSearchOption] = useState([options]);
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +29,7 @@ export function SelectOption({ value, onChange, options }) {
   }, [inputValue]);
 
   function isOptionSelected(option) {
-    return value.includes(option);
+    return metro.includes(option);
   }
 
   useEffect(() => {
@@ -85,7 +87,7 @@ export function SelectOption({ value, onChange, options }) {
     >
       <div className='wrapper-value'>
         <span className='value'>
-          {value.map((v, index) => (
+          {metro.map((v, index) => (
             <button
               key={index + Date.now()}
               onClick={(e) => {
@@ -127,7 +129,7 @@ export function SelectOption({ value, onChange, options }) {
       </ul>
     </div>
   );
-}
+});
 
 SelectOption.propTypes = {
   value: PropTypes.array,

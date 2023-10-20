@@ -2,15 +2,15 @@
 @import '../../../../styles/abstract/mixins.scss';
 
 .navigation-favorites {
-  margin-bottom: 40px;
-  width: 298px;
+  padding-left: 12px;
   display: flex;
+  flex-direction: column;
   gap: 16px;
 }
 
 .navigation-favorites__item {
   @include text-m;
-  color: $title-blue;
+  color: $black;
   @include link;
   padding: 0;
   text-align: start;

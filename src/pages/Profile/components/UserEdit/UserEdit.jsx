@@ -3,16 +3,20 @@ import { InputWrapper } from '../../../../components/common/InputWrapper';
 import { Input } from '../../../../components/common/Input';
 import { Button } from '../../../../components/common/Button';
 import { useFormAndValidation } from '../../../../hooks/useFormAndValidation';
-// import { useUpdateUserMutation } from '../../../../api/userApi';
+import {
+  useGetUserQuery,
+  useUpdateUserMutation,
+} from '../../../../api/userApi';
 import { useEffect, useState } from 'react';
 import { InputTel } from '../../../../components/InputTel';
 
-export function UserEdit({ setEditUser, onSubmit = () => {} }) {
+export function UserEdit({ setEditUser }) {
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
 
-  // const [updateUser] = useUpdateUserMutation();
+  const [updateUser] = useUpdateUserMutation();
+  const { data: userData = {} } = useGetUserQuery();
 
-  const { data, onChange, errors, isValid } = useFormAndValidation();
+  const { data, setData, onChange, errors, isValid } = useFormAndValidation();
   useEffect(() => {
     if (data.phone && isValid) {
       // Это костыль, чтобы провалидировать инпут телефона из библиотечки
@@ -26,65 +30,81 @@ export function UserEdit({ setEditUser, onSubmit = () => {} }) {
     }
   }, [data, isValid]);
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    const {
+      first_name,
+      last_name,
+      child_first_name,
+      child_last_name,
+      phone,
+      email,
+    } = userData;
+    setData({
+      first_name: first_name,
+      last_name: last_name,
+      child_first_name: child_first_name,
+      child_last_name: child_last_name,
+      phone: phone,
+      email: email,
+    });
+  }, [setData, userData]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit(data);
+    await updateUser({
+      first_name: data.first_name,
+      last_name: data.last_name,
+      child_first_name: data.child_first_name,
+      child_last_name: data.child_last_name,
+      phone: data.phone,
+      email: data.email,
+    });
     if (data) {
       setEditUser(false);
     }
-    console.log(data); // eslint-disable-line
   };
-
-  // useEffect(() => {
-  //   if (data.phone && data.phone?.includes('_')) {
-  //     setErrors({
-  //       ...errors,
-  //       phone: 'Введите корректный номер телефона',
-  //     });
-  //   }
-  // }, [data, errors]); // eslint-disable-line
 
   return (
     <form className='user-edit__form'>
-      <div className='user__wrapper'>
-        <p className='user-edit__name-text'>Имя родителя</p>
+      <div className='user__wrapper user__wrapper-edit'>
+        <p className='user-edit__name-text'>Родитель</p>
         <InputWrapper
           labelText='Имя'
-          inputId='parent_first_name'
+          inputId='first_name'
           variant='info'
-          errorText={errors['parent_first_name']}
+          errorText={errors['first_name']}
         >
           <Input
-            inputId='parent_first_name'
+            inputId='first_name'
             variant='info'
-            name='parent_first_name'
+            name='first_name'
             onChange={onChange}
-            value={data['parent_first_name']}
+            value={data['first_name']}
             placeholder='Введите имя'
             type='text'
-            isValid={!errors['parent_first_name']?.length}
+            isValid={!errors['first_name']?.length}
           />
         </InputWrapper>
         <InputWrapper
           labelText='Фамилия'
-          inputId='parent_last_name'
+          inputId='last_name'
           variant='info'
-          errorText={errors['parent_last_name']}
+          errorText={errors['last_name']}
         >
           <Input
-            inputId='parent_last_name'
+            inputId='last_name'
             variant='info'
-            name='parent_last_name'
+            name='last_name'
             onChange={onChange}
-            value={data['parent_last_name']}
+            value={data['last_name']}
             placeholder='Введите фамилию'
             type='text'
-            isValid={!errors['parent_last_name']?.length}
+            isValid={!errors['last_name']?.length}
           />
         </InputWrapper>
       </div>
-      <div className='user__wrapper'>
-        <p className='user-edit__name-text'>Имя ребенка</p>
+      <div className='user__wrapper user__wrapper-edit'>
+        <p className='user-edit__name-text'>Ребёнок</p>
         <InputWrapper
           labelText='Имя'
           inputId='child_first_name'
@@ -120,7 +140,7 @@ export function UserEdit({ setEditUser, onSubmit = () => {} }) {
           />
         </InputWrapper>
       </div>
-      <div className='user__wrapper'>
+      <div className='user__wrapper user__wrapper-edit'>
         <p className='user-edit__name-text'>Телефон</p>
         <InputWrapper
           labelText='Телефон'
@@ -129,7 +149,7 @@ export function UserEdit({ setEditUser, onSubmit = () => {} }) {
           errorText={errors['phone']}
         >
           <InputTel
-            isClass='inputTel__profiel'
+            isClass='inputTel__profile'
             variant='info'
             inputId='phone'
             name='phone'
@@ -141,7 +161,7 @@ export function UserEdit({ setEditUser, onSubmit = () => {} }) {
           />
         </InputWrapper>
       </div>
-      <div className='user__wrapper'>
+      <div className='user__wrapper user__wrapper-edit'>
         <p className='user-edit__name-text'>Email</p>
         <InputWrapper
           labelText='Email'
@@ -165,20 +185,20 @@ export function UserEdit({ setEditUser, onSubmit = () => {} }) {
         <Button
           type='submit'
           width='188px'
-          size='medium'
+          size='small'
           color={isReadyToSubmit ? 'orange-fill' : 'empty'}
           disabled={!isReadyToSubmit}
           onClick={(e) => {
             handleSubmit(e);
           }}
         >
-          Изменить
+          Сохранить
         </Button>
         <Button
           type='button'
           width='188px'
-          size='medium'
-          color='empty'
+          size='small'
+          color='orange-empty'
           onClick={(e) => {
             e.preventDefault();
             setEditUser(false);

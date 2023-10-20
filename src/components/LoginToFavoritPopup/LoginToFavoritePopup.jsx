@@ -25,7 +25,7 @@ export const LoginToFavoritePopup = () => {
     >
       <div className='popup-favorite'>
         <p className='popup-favorite__description'>
-          Войдите в личный кабинет, чтобы добавить в&nbsp;избранное
+          Войдите в личный кабинет, чтобы добавить <br /> в&nbsp;избранное
         </p>
         <p className='popup-favorite__register'>
           В первый раз здесь?&nbsp;

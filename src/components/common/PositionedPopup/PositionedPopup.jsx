@@ -9,6 +9,7 @@ export const PositionedPopup = ({ isOpen, name, children, left, top }) => {
   // стейты для высоты экрана и для координаты высоты для попапа
   const [screenHeight, setScreenHeight] = useState(window.innerHeight);
   const [newTop, setNewTop] = useState(0);
+  const [initialLeft, setInitialLeft] = useState(0);
 
   const dispatch = useDispatch();
 
@@ -33,7 +34,11 @@ export const PositionedPopup = ({ isOpen, name, children, left, top }) => {
       }
     };
 
+    // проверяем top
     setVerticalPosition();
+
+    // сохраняем left в стейт
+    setInitialLeft(left);
 
     document.addEventListener('keydown', closeByEscape);
     document.body.classList.add('page_lock');
@@ -58,7 +63,7 @@ export const PositionedPopup = ({ isOpen, name, children, left, top }) => {
         containerRef.current.getBoundingClientRect().height;
 
       if (screenHeight - top < containerHeight + 20) {
-        setNewTop(top - containerHeight - 54);
+        setNewTop(top - containerHeight - 35);
       } else {
         setNewTop(top);
       }
@@ -77,7 +82,7 @@ export const PositionedPopup = ({ isOpen, name, children, left, top }) => {
         ref={containerRef}
         style={{
           position: 'absolute',
-          left,
+          left: initialLeft,
           top: newTop,
         }}
       >

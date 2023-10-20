@@ -27,14 +27,13 @@ export const PasswordRecoveryConfirmModal = ({ id, token }) => {
     try {
       const response = await createNewPass({
         new_password: data['password-recovery-form-password'],
-        new_re_password: data['password-recovery-form-password-repeat'],
+        re_new_password: data['password-recovery-form-password-repeat'],
         MTY: id,
         token: token,
       });
     } catch (error) {
       console.log(error);
     }
-    console.log(data);
   };
 
   // проверка валдиности для второго шага
@@ -112,7 +111,7 @@ export const PasswordRecoveryConfirmModal = ({ id, token }) => {
           width='532px'
           size='large'
           color={isReadyToSubmit ? 'orange-fill' : 'orange-dis'}
-          disabled={!isReadyToSubmit}
+          disabled={!isReadyToSubmit && isLoading}
           onClick={(e) => {
             handleSubmit(e);
           }}

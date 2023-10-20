@@ -75,8 +75,7 @@ export const INITIAL_FILTER_STATE = {
 
 export const NAV_CATEGORY = [
   { name: 'Школы', category: 'school' },
-  { name: 'Сады', category: 'garden' },
-  { name: 'Курсы', category: 'course' },
+  { name: 'Сады', category: 'kindergarten' },
 ];
 
 export const METRO_LIST = [
@@ -290,4 +289,11 @@ export const METRO_LIST = [
   'Западная',
   'Южная',
   'Ясенево',
+];
+
+export const sortButtons = [
+  { title: 'По названию', id: 'name' },
+  { title: 'По стоимости', id: 'cost' },
+  { title: 'По отзывам', id: 'feedback' },
+  { title: 'По рейтингу', id: 'rate' },
 ];

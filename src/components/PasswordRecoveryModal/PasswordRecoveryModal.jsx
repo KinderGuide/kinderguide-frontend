@@ -6,8 +6,9 @@ import { Input } from '../common/Input';
 
 import { Button } from '../common/Button';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useResetPasMutation } from '../../api/authApi';
+import { closeAllModals } from '../../store/modalsSlice';
 
 // stepRecovery -  шаг восстановления.
 // пока что  варианты 1 - ввод почты & 2 - создание пароля
@@ -18,7 +19,7 @@ export const PasswordRecoveryModal = () => {
   const isOpen = useSelector(
     (state) => state.modals.isOpenPasswordRecoveryModal
   );
-
+  const dispatch = useDispatch();
   const [resetPassword, { isLoading, isError }] = useResetPasMutation();
 
   const handleSubmit = async (e) => {
@@ -30,6 +31,7 @@ export const PasswordRecoveryModal = () => {
       }).unwrap();
       console.log(response); // eslint-disable-line
       resetForm();
+      dispatch(closeAllModals());
     } catch (err) {
       console.log(err);
     }
@@ -80,12 +82,12 @@ export const PasswordRecoveryModal = () => {
           width='532px'
           size='large'
           color={isReadyToSubmit ? 'orange-fill' : 'orange-dis'}
-          disabled={!isReadyToSubmit}
+          disabled={!isReadyToSubmit && isLoading}
           onClick={(e) => {
             handleSubmit(e);
           }}
         >
-          Отправить
+          {isLoading ? 'Подождите' : 'Отправить'}
         </Button>
       </form>
 

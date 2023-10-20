@@ -1,25 +1,15 @@
 import { useState } from 'react';
 
-import img from '../../../images/NewsCard/img1.jpg';
 import { Stars } from '../../Stars';
 import './Card.scss';
 import { LikeButton } from '../../LikeButton/LikeButton';
+import { Link } from 'react-router-dom';
 
-export const Card = () => {
+export const Card = ({ cardData, selected }) => {
   const [isLiked, setIsLiked] = useState(false);
 
   const handleLike = () => {
     setIsLiked(!isLiked);
-  };
-
-  const cardData = {
-    id: 0,
-    name: 'Название школы',
-    description:
-      'Краткая информация о школе Краткая информация о школеКраткая информация о школеКраткая информация о школеКраткая информация о школе',
-    image: img,
-    price: 1000,
-    rating: 3.7,
   };
 
   return (
@@ -27,7 +17,9 @@ export const Card = () => {
       <img className='card__img' src={cardData.image} alt='Фото школы' />
       <div className='card__container'>
         <div className='card__title-block'>
-          <h3 className='card__title'>{cardData.name}</h3>
+          <Link to={`/${selected}/${cardData.id}`} className='card__title'>
+            {cardData.name}
+          </Link>
           <LikeButton isLiked={isLiked} onLike={handleLike} />
         </div>
 

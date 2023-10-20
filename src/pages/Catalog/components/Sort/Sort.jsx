@@ -1,13 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useClickOutside } from '../../../../hooks/useClickOutside';
+import { sortButtons } from '../../../../utils/filterData';
 import './Sort.scss';
-
-const sortButtons = [
-  { title: 'По названию', id: 'name' },
-  { title: 'По стоимости', id: 'cost' },
-  { title: 'По отзывам', id: 'feedback' },
-  { title: 'По рейтингу', id: 'rate' },
-];
 
 export function Sort({ sortHandler, sortDirectionHandler }) {
   const [isActive, setIsActive] = useState(false);

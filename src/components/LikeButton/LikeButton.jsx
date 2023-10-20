@@ -21,7 +21,7 @@ export const LikeButton = ({ isLiked, onLike }) => {
       // Определяем координаты left и top
       const coordinates = {
         left: buttonRect.left,
-        top: buttonRect.top + buttonRect.height, // Добавляем высоту кнопки
+        top: buttonRect.top + 30, // Добавляем высоту кнопки
       };
 
       dispatch(openLoginToFavoritePopup(coordinates));

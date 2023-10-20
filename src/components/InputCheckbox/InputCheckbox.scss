@@ -4,13 +4,13 @@
 .checkbox__variant {
   &_terms {
     display: flex;
-    gap: 25px;
+    gap: 20px;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 
     width: 520px;
     height: 68px;
-    margin-bottom: 20px;
+    margin: 18px 0 4px 15px;
   }
 
   &_filter {
@@ -29,7 +29,7 @@
   }
 
   &_filter {
-    color: #b8c7ff;
+    color: #1f1f29;
     font-family: Noto Sans;
     font-size: 16px;
     font-style: normal;

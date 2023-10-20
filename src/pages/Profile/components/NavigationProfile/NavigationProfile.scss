@@ -2,22 +2,51 @@
 @import '../../../../styles/abstract/mixins.scss';
 
 .navigation-profile {
+  padding-top: 7px;
   width: 298px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 16px;
 }
 
 .navigation-profile__item {
-  @include text-m;
-  color: $title-blue;
+  width: 298px;
+  @include text-l;
+  color: $black;
   @include link;
   padding: 0;
   text-align: start;
   background-color: #fff;
   border: none;
-  line-height: 130%;
-  font-family: 'Manrope', 'Arial', sans-serif;
+  font-family: 'Noto Sans', 'Arial', sans-serif;
+}
+
+.navigation-profile__item_favorites {
+  position: relative;
+}
+
+.navigation-profile__item_favorites::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  top: 0;
+  right: 12px;
+  position: absolute;
+  background-image: url('../../../../images/Profile/Arrow-min-down.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.favoritesOpen::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  top: 0;
+  right: 12px;
+  position: absolute;
+  background-image: url('../../../../images/Profile/Arrow-min-up.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .navigation-profile__item_active {

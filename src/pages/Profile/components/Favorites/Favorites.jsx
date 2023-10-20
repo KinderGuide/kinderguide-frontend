@@ -1,18 +1,13 @@
 import React from 'react';
 import './Favorites.scss';
-import { NavigationFavorites } from '../NavigationFavorites/NavigationFavorites';
-import { ShowList } from '../../../../components/ShowList';
+import { ShowList } from '../../../../components/ShowList/ShowList';
 
-export function Favorites({ setStateFavorites, stateFavorites }) {
+export function Favorites({ stateProfile }) {
   return (
     <section className='favorites'>
-      <NavigationFavorites
-        setStateFavorites={setStateFavorites}
-        stateFavorites={stateFavorites}
-      />
-      {stateFavorites === 'school' ? <ShowList /> : ''}
-      {stateFavorites === 'gardens' ? <ShowList /> : ''}
-      {stateFavorites === 'courses' ? <ShowList /> : ''}
+      {stateProfile === 'school' ? <ShowList /> : ''}
+      {stateProfile === 'gardens' ? <ShowList /> : ''}
+      {stateProfile === 'all' ? <ShowList /> : ''}
     </section>
   );
 }

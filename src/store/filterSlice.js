@@ -1,20 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { INITIAL_FILTER_STATE } from '../utils/filterData';
 
-const initialState = {
-  category: 'school',
-  request: '',
-  sort: '',
-  sortDirection: true,
-  profile: [],
-  age: [],
-  language: [],
-  district: [],
-  metro: [],
-  price: {
-    minVal: 0,
-    maxVal: 10000000,
-  },
-};
+const initialState = INITIAL_FILTER_STATE;
 
 const filterSlice = createSlice({
   name: 'filter',
@@ -50,6 +37,7 @@ const filterSlice = createSlice({
       }
     },
     setPriceFilter(state, action) {
+      console.log('renederrrr');
       state.price.minVal = Math.max(0, action.payload.minVal);
       state.price.maxVal = Math.max(0, action.payload.maxVal);
     },
