@@ -36,7 +36,7 @@
     "commit": "lint-staged && cz",
     "sb": "storybook dev -p 6006",
     "build-sb": "storybook build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
