@@ -39,37 +39,43 @@ export const DoubleRange = React.memo(({ min, max }) => {
   return (
     <div className='container'>
       <div className='values'>
-        <input
-          placeholder='от 1000'
-          className='values__left'
-          value={price.minVal}
-          onChange={(event) => {
-            if (isNaN(event.target.value)) {
-              dispatch(setPriceFilter(price));
-              return;
-            }
-            const value = Math.min(Number(event.target.value), price.maxVal);
-            dispatch(setPriceFilter({ ...price, minVal: value }));
-          }}
-        />
+        <div className='values-wrapper'>
+          <span className='values-from'>от</span>
+          <input
+            placeholder='от 1000'
+            className='values__left'
+            value={price.minVal}
+            onChange={(event) => {
+              if (isNaN(event.target.value)) {
+                dispatch(setPriceFilter(price));
+                return;
+              }
+              const value = Math.min(Number(event.target.value), price.maxVal);
+              dispatch(setPriceFilter({ ...price, minVal: value }));
+            }}
+          />
+        </div>
         <div className='values__separator'></div>
-        <input
-          placeholder='до 10 000 000'
-          className='values__right'
-          value={price.maxVal}
-          onChange={(event) => {
-            if (isNaN(event.target.value)) {
-              dispatch(setPriceFilter(price));
-              return;
-            }
-            const value = Math.max(Number(event.target.value), price.minVal);
-            if (value > max) {
-              dispatch(setPriceFilter({ ...price, maxVal: max }));
-              return;
-            }
-            dispatch(setPriceFilter({ ...price, maxVal: value }));
-          }}
-        />
+        <div className='values-wrapper'>
+          <span className='values-to'>до</span>
+          <input
+            placeholder='до 10 000 000'
+            className='values__right'
+            value={price.maxVal}
+            onChange={(event) => {
+              if (isNaN(event.target.value)) {
+                dispatch(setPriceFilter(price));
+                return;
+              }
+              const value = Math.max(Number(event.target.value), price.minVal);
+              if (value > max) {
+                dispatch(setPriceFilter({ ...price, maxVal: max }));
+                return;
+              }
+              dispatch(setPriceFilter({ ...price, maxVal: value }));
+            }}
+          />
+        </div>
       </div>
       <div className='slider'>
         <input

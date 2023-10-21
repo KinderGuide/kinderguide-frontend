@@ -14,36 +14,52 @@ import {
   setSortDirectionFilter,
   setCheckboxFilter,
   setFilterDefault,
+  setFilterAllData,
 } from '../../store/filterSlice';
+import { useLocation } from 'react-router-dom';
 
 export function Catalog() {
-  const [selected, setSelected] = useState('school');
-  const [paramsUrl, setParamsUrl] = useState('');
-
-  const { filter } = useSelector((state) => state);
+  const { filter } = useSelector((state) => state, { noopCheck: 'never' });
   const deferredFilter = useDeferredValue(filter);
+
+  const [selected, setSelected] = useState(filter.category);
+  const [paramsUrl, setParamsUrl] = useState('');
+  const path = useLocation().pathname;
+
   const dispatch = useDispatch();
 
-  const { initialCards = [] } = useGetFilteredDataQuery([
-    deferredFilter.category,
+  const { data = [], isLoading } = useGetFilteredDataQuery([
+    filter.category,
     paramsUrl,
   ]);
 
   useEffect(() => {
-    filteredDataHandler(deferredFilter);
+    filteredDataHandler(filter);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [filter.sort, filter.sortDirection]);
+
+  useEffect(() => {
+    localStorage.setItem('filter', JSON.stringify(filter));
+  }, [filter]);
+
+  useEffect(() => {
+    const filterData = JSON.parse(localStorage.getItem('filter'));
+    if (path === 'catalog' && filterData) {
+      dispatch(setFilterAllData(filterData));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [path]);
 
   const onClickNavHandler = (e) => {
     dispatch(setFilterDefault());
     setSelected(e.target.id);
     dispatch(setCategoryFilter(e.target.id));
-    filteredDataHandler(deferredFilter);
+    filteredDataHandler(filter);
   };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    filteredDataHandler(deferredFilter);
+    filteredDataHandler(filter);
   };
 
   const checkboxHandler = (key, value) => {
@@ -128,7 +144,12 @@ export function Catalog() {
           selectHandler={checkboxHandler}
           handleReset={handleReset}
         />
-        <ShowList selected={selected} />
+        <ShowList
+          data={data ? data.results : []}
+          selected={selected.slice(0, -1)}
+          category={deferredFilter.category}
+          isLoading={isLoading}
+        />
       </div>
     </section>
   );

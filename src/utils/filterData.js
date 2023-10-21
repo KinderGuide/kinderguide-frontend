@@ -58,9 +58,9 @@ export const FILTER_ITEMS = [
 ];
 
 export const INITIAL_FILTER_STATE = {
-  category: 'school',
+  category: 'schools',
   request: '',
-  sort: '',
+  sort: 'name',
   sortDirection: true,
   profile: [],
   age: [],
@@ -74,8 +74,8 @@ export const INITIAL_FILTER_STATE = {
 };
 
 export const NAV_CATEGORY = [
-  { name: 'Школы', category: 'school' },
-  { name: 'Сады', category: 'kindergarten' },
+  { name: 'Школы', category: 'schools' },
+  { name: 'Сады', category: 'kindergartens' },
 ];
 
 export const METRO_LIST = [

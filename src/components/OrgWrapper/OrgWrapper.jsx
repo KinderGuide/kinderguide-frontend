@@ -10,15 +10,15 @@ import { LikeButton } from '../LikeButton';
 import { Reviews } from '../ShowList/Reviews';
 import React from 'react';
 
-export const OrgWrapper = ({ data, feedback, org, link, activities }) => {
+export const OrgWrapper = ({ data, feedback, org, activities }) => {
   return (
     <div className='orgWrapper'>
       <nav className='orgWrapper__nav'>
-        <Link to='/' className='orgWrapper__nav-item'>
+        <Link to='/catalog' className='orgWrapper__nav-item'>
           Образование
         </Link>
         <p className='orgWrapper__nav-item'>&nbsp;/&nbsp;</p>
-        <Link to={`/${link}`} className='orgWrapper__nav-item'>
+        <Link to='/catalog' className='orgWrapper__nav-item'>
           {org}
         </Link>
       </nav>

@@ -2,10 +2,11 @@ import React, { useRef, useState } from 'react';
 import { useClickOutside } from '../../../../hooks/useClickOutside';
 import { sortButtons } from '../../../../utils/filterData';
 import './Sort.scss';
+import { useSelector } from 'react-redux';
 
 export function Sort({ sortHandler, sortDirectionHandler }) {
   const [isActive, setIsActive] = useState(false);
-  const [selected, setSelected] = useState('name');
+  const { sort } = useSelector((state) => state.filter);
   const sortRef = useRef(null);
 
   useClickOutside(sortRef, () => {
@@ -17,7 +18,6 @@ export function Sort({ sortHandler, sortDirectionHandler }) {
   };
 
   const onClickSortHandler = (e) => {
-    setSelected(e.target.id);
     sortHandler(e.target.id);
   };
 
@@ -45,7 +45,7 @@ export function Sort({ sortHandler, sortDirectionHandler }) {
                 id={button.id}
                 type='button'
                 className={`sort-list__button ${
-                  selected === button.id ? 'sort-list__button_selected' : ''
+                  sort === button.id ? 'sort-list__button_selected' : ''
                 }`}
                 onClick={onClickSortHandler}
               >

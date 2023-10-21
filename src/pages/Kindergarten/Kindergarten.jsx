@@ -46,7 +46,6 @@ export const Kindergarten = () => {
       data={kindergartenData}
       feedback={kindergartenReviewsData.results}
       org='Детские сады'
-      link='kindergartens'
       activities={activities}
     />
   );

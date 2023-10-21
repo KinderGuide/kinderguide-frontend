@@ -1,4 +1,19 @@
+@import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
+
 .show-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.show-list__info {
+  color: #1f1f29;
+  @include text-s;
+  line-height: 120%;
+}
+
+.show-list__items {
   display: flex;
   flex-direction: column;
   gap: 23px;

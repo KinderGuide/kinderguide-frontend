@@ -38,7 +38,6 @@ export const School = () => {
       data={schoolData}
       feedback={schoolReviewsData.results}
       org='Школы'
-      link='shools'
       activities={activities}
     />
   );
