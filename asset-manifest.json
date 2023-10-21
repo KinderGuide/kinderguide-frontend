@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/kinderguide-frontend/static/css/main.2e097d3d.css",
-    "main.js": "/kinderguide-frontend/static/js/main.9786fad7.js",
+    "main.js": "/kinderguide-frontend/static/js/main.ec59398b.js",
     "static/media/img2.jpg": "/kinderguide-frontend/static/media/img2.6aed2e69236955fcfda0.jpg",
     "static/media/img6.jpg": "/kinderguide-frontend/static/media/img6.757b59922388c9e7d214.jpg",
     "static/media/img4.jpg": "/kinderguide-frontend/static/media/img4.71703fe2cae31fe690f7.jpg",
@@ -59,10 +59,10 @@
     "static/media/clock.svg": "/kinderguide-frontend/static/media/clock.c9f0e84a978b1e149b4f.svg",
     "static/media/btn-close.svg": "/kinderguide-frontend/static/media/btn-close.039f1f5203f653b4bacd.svg",
     "main.2e097d3d.css.map": "/kinderguide-frontend/static/css/main.2e097d3d.css.map",
-    "main.9786fad7.js.map": "/kinderguide-frontend/static/js/main.9786fad7.js.map"
+    "main.ec59398b.js.map": "/kinderguide-frontend/static/js/main.ec59398b.js.map"
   },
   "entrypoints": [
     "static/css/main.2e097d3d.css",
-    "static/js/main.9786fad7.js"
+    "static/js/main.ec59398b.js"
   ]
 }
