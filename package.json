@@ -1,5 +1,6 @@
 {
   "name": "kinderguide-frontend",
+  "homepage": "https://search-and-order-services-kindergartens.github.io/kinderguide-frontend/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
